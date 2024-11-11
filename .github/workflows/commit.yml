@@ -21,6 +21,12 @@ jobs:
         with:
           node-version: '16'
 
+          
+      - name: Garantir permissões dos binários do Node.js
+        run: chmod +x ./minha-api/node_modules/.bin/*
+        working-directory: ./minha-api
+        
+
       - name: Instalar dependências
         run: npm install
         working-directory: ./minha-api  # Direciona para o diretório correto
