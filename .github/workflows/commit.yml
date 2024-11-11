@@ -18,9 +18,10 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Instalar dependências
-        run: npm install
-        working-directory: ./minha-api
+      - name: Navegar para o diretório correto e instalar dependências
+        run: |
+          cd minha-api
+          npm install
 
       - name: Verificar se node_modules foi criado
         run: ls -l ./minha-api/node_modules
