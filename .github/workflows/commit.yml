@@ -22,6 +22,10 @@ jobs:
         run: npm install
         working-directory: ./minha-api
 
+      - name: Garantir permissões nos binários
+        run: chmod -R +x ./minha-api/node_modules/.bin
+        working-directory: ./minha-api
+
       - name: Executar testes
-        run: npm test
+        run: npx jest
         working-directory: ./minha-api
