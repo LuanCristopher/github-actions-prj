@@ -3,7 +3,7 @@ name: Workflow de Commit
 on:
   push:
     branches:
-      - main  # ou a branch que você está usando
+      - main
 
 jobs:
   build:
@@ -13,27 +13,30 @@ jobs:
       - name: Clonar o repositório
         uses: actions/checkout@v2
 
+      - name: Verificar estrutura do repositório
+        run: ls -l
+
       - name: Instalar Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Navegar para o diretório correto e instalar dependências
+      - name: Garantir permissões para o diretório e arquivos
+        run: chmod -R 755 .
+
+      - name: Verificar diretório 'minha-api'
+        run: ls -l ./minha-api
+
+      - name: Navegar para o diretório e instalar dependências
         run: |
           cd minha-api
           npm install
 
       - name: Verificar se node_modules foi criado
         run: ls -l ./minha-api/node_modules
-        working-directory: ./minha-api
-
-      - name: Verificar se o Jest está presente
-        run: ls -l ./minha-api/node_modules/.bin
-        working-directory: ./minha-api
 
       - name: Garantir permissões dos binários
         run: chmod -R +x ./minha-api/node_modules/.bin/*
-        working-directory: ./minha-api
 
       - name: Executar testes
         run: npx jest
