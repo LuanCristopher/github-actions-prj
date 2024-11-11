@@ -22,6 +22,18 @@ jobs:
         run: npm install
         working-directory: ./minha-api
 
+      - name: Garantir que o Jest esteja instalado
+        run: |
+          if [ ! -f "./minha-api/node_modules/.bin/jest" ]; then
+            echo "Jest não está instalado, instalando..."
+            npm install --save-dev jest
+          fi
+        working-directory: ./minha-api
+
+      - name: Garantir permissões para o Jest
+        run: chmod +x ./minha-api/node_modules/.bin/jest
+        working-directory: ./minha-api
+
       - name: Executar testes
         run: npx jest
         working-directory: ./minha-api
