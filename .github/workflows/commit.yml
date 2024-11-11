@@ -22,10 +22,6 @@ jobs:
         run: npm install
         working-directory: ./minha-api
 
-      - name: Garantir permissões para o Jest
-        run: chmod +x ./minha-api/node_modules/.bin/jest
-        working-directory: ./minha-api
-
       - name: Executar testes
         run: npx jest
         working-directory: ./minha-api
