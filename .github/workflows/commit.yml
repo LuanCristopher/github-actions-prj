@@ -13,10 +13,9 @@ jobs:
       - name: Clonar o repositório
         uses: actions/checkout@v2
 
-      - name: Navegar entre diretórios 
-        run: echo "Direcionando para o diretório ../../minha-api"
-        working-directory: ./minha-api  # Direciona para o diretório correto
-
+      - name: Navegar para o diretório "minha-api"
+        run: echo "Estamos no diretório raiz"
+      
       - name: Instalar Node.js
         uses: actions/setup-node@v2
         with:
@@ -24,6 +23,8 @@ jobs:
 
       - name: Instalar dependências
         run: npm install
+        working-directory: ./minha-api  # Direciona para o diretório correto
 
       - name: Executar testes
         run: npm test
+        working-directory: ./minha-api  # Direciona para o diretório correto
