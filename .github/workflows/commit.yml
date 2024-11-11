@@ -21,16 +21,17 @@ jobs:
         with:
           node-version: '16'
 
-          
-      - name: Garantir permissões dos binários do Node.js
-        run: chmod +x ./minha-api/node_modules/.bin/*
-        working-directory: ./minha-api
-        
-
       - name: Instalar dependências
         run: npm install
-        working-directory: ./minha-api  # Direciona para o diretório correto
+        working-directory: ./minha-api
+
+      - name: Garantir permissões dos binários do Node.js (se existir)
+        run: |
+          if [ -d "./minha-api/node_modules/.bin" ]; then
+            chmod +x ./minha-api/node_modules/.bin/*
+          fi
+        working-directory: ./minha-api
 
       - name: Executar testes
-        run: npm test
-        working-directory: ./minha-api  # Direciona para o diretório correto
+        run: npx jest
+        working-directory: ./minha-api
