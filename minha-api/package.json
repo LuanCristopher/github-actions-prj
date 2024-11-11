@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "sh node_modules/.bin/jest",
+    "test:watch": "jest --watch"
   },
   
   "keywords": [],
