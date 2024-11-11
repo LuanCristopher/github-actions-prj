@@ -22,8 +22,16 @@ jobs:
         run: npm install
         working-directory: ./minha-api
 
-      - name: Garantir permissões nos binários
-        run: chmod -R +x ./minha-api/node_modules/.bin
+      - name: Verificar se node_modules foi criado
+        run: ls -l ./minha-api/node_modules
+        working-directory: ./minha-api
+
+      - name: Verificar se o Jest está presente
+        run: ls -l ./minha-api/node_modules/.bin
+        working-directory: ./minha-api
+
+      - name: Garantir permissões dos binários
+        run: chmod -R +x ./minha-api/node_modules/.bin/*
         working-directory: ./minha-api
 
       - name: Executar testes
