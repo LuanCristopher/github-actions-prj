@@ -3,7 +3,6 @@ const app = express();
 
 app.use(express.json());
 
-// Lista de filmes (simulando um banco de dados)
 let filmes = [
   { id: 1, titulo: 'Filme 1' },
   { id: 2, titulo: 'Filme 2' }
@@ -41,4 +40,4 @@ app.delete('/filmes/:id', (req, res) => {
   res.status(204).send();
 });
 
-module.exports = app; // Exporta apenas o app
+module.exports = app; 
