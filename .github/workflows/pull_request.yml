@@ -21,5 +21,11 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+      - name: Garantir permissões dos binários
+        run: chmod -R +x ./minha-api/node_modules/.bin/*
+      
+      - name: Garantir permissões para o diretório e arquivos
+        run: chmod -R 755 .
+
       - name: Rodar testes
         run: npm test
