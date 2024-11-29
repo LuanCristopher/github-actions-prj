@@ -27,5 +27,8 @@ jobs:
       - name: Garantir permissões para o diretório e arquivos
         run: chmod -R 755 .
 
-      - name: Rodar testes e verificar cobertura de código
-        run: npm test -- --coverage
+      - name: Executar testes e verificar cobertura
+        run: |
+          cd minha-api
+          npm install
+          npx jest --coverage
