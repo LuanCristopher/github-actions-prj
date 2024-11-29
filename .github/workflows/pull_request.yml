@@ -27,5 +27,5 @@ jobs:
       - name: Garantir permissões para o diretório e arquivos
         run: chmod -R 755 .
 
-      - name: Rodar testes
-        run: npm test
+      - name: Rodar testes e verificar cobertura de código
+        run: npm test -- --coverage

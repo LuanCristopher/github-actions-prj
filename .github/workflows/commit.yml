@@ -38,6 +38,7 @@ jobs:
       - name: Garantir permissões dos binários
         run: chmod -R +x ./minha-api/node_modules/.bin/*
 
-      - name: Executar testes
-        run: npx jest
-        working-directory: ./minha-api
+      - name: Executar testes e verificar cobertura de código
+        run: |
+          cd minha-api
+          npx jest --coverage
