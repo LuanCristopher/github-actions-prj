@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
@@ -40,9 +39,6 @@ app.delete('/filmes/:id', (req, res) => {
   }
   filmes.splice(index, 1); // Remove o filme
   res.status(204).send();
-  
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
+module.exports = app; // Exporta apenas o app

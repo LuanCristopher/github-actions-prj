@@ -38,7 +38,9 @@ jobs:
       - name: Garantir permissões dos binários
         run: chmod -R +x ./minha-api/node_modules/.bin/*
 
-      - name: Executar testes e verificar cobertura de código
+      - name: Executar testes e verificar cobertura
         run: |
           cd minha-api
+          npm install
           npx jest --coverage
+      
